@@ -30,6 +30,19 @@ services:
     depends_on:
       - db
 
+  frontend:
+    build: 
+      context: ./frontend
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "4200:4200"
+    environment:
+      - "APP_ENV=development"
+      - "API_URL=http://api"
+    depends_on:
+      - api
+
   pgadmin:
     container_name: pgadmin_container
     image: dpage/pgadmin4

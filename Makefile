@@ -7,6 +7,9 @@ start:
 stop: 
 	docker-compose down
 
+restart:
+	docker-compose restart
+
 clean: 
 	docker-compose down -v
 
