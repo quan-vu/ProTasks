@@ -1,0 +1,19 @@
+.sidebar{
+    position: fixed;
+    height: 100%;
+    width: 280px;
+    background-color: whitesmoke;
+    border-right: 1px solid #eee;
+    padding: 25px 15px;
+}
+
+.main {
+    position: fixed;
+    top: 0px;
+    left: 280px;
+    right: 0;
+    height: 100%;
+    background: white;
+    padding: 35px 15px;
+    overflow-y: auto;
+}

@@ -1,0 +1,10 @@
+<div class="top-destination">
+    <h3 class="title">{{title}}</h3>
+    <ul class="top-destination_list">
+        <li *ngFor="let item of topDestination">
+            <img class="image" [src]="item.image" />
+            <h4 class="location">{{item.title}}</h4>
+            <div class="description">{{item.description}}</div>
+        </li>
+    </ul>
+</div>

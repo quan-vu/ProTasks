@@ -1,0 +1,76 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 9;
+	height: 60px;
+	align-items: center;
+	background-color: #f7c231;
+	color: #fff;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 30%);
+	
+	* {
+		text-shadow: none;
+	}
+
+	a {
+		color: whitesmoke;
+	}
+
+    .site-brand {
+		
+		position: relative;
+		margin-right: 16px;
+		height: 60px;
+		width: 100%;
+		display: inline-block;
+
+
+		.logo {
+			margin-left: 16px;
+			margin-right: 10px;
+			padding: 6px 0;
+		}	
+		
+		.name {
+			position: absolute;
+			top: 8px;
+			left: 65px;
+			text-transform: capitalize;
+			font-size: 22px;
+			color: #444;
+    		font-weight: 500;
+		}
+		.branch {
+			position: absolute;
+			top: 35px;
+			left: 65px;
+			font-size: 0.7rem;
+			color: #666;
+		}
+	}
+    
+    &_menu {
+        
+		padding: 10px 0;
+
+        li {
+            display: inline-flex;
+			margin: 0 15px;
+            
+            a {
+                padding: 10px;
+                text-decoration: none;
+                color: whitesmoke;
+				// color: whitesmoke;
+				font-weight: 500;
+
+                &:hover {
+                    // color: #e04d32;
+                    opacity: 0.9;
+                }
+            }
+        }
+    }
+}
