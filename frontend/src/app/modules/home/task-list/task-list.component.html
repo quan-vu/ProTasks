@@ -1,0 +1,15 @@
+<div class="tasks_list">
+    <div class="tasks_list_item" *ngFor="let task of tasks">
+        <div class="tasks_list_item_wrap">
+            <div class="checkbox d-inline-block me-3">
+                <mat-checkbox></mat-checkbox>
+            </div>
+            <div class="content d-inline-block">
+                {{task.content}}
+            </div>
+            <!-- <div class="controls d-inline-block">
+                <button class="btn-success" mat-raised-button>Mark as Done</button>
+            </div> -->
+        </div>
+    </div>
+</div>

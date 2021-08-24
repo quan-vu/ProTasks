@@ -1,0 +1,41 @@
+.filter{
+
+    &_item {
+        display: inline-block;
+        width: 100%;
+        margin: 2px 0;
+        padding: 10px 10px 5px 10px;
+        border-radius: 50px;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #dddddd;
+
+            .icon {
+                color: #f7c231;
+            }
+        }
+
+        &.active {
+            background-color: #f7c231;
+
+        }
+
+        .title {
+            text-transform: uppercase;
+            font-weight: 500;
+            color: #666666;
+        }
+    
+        .icon {
+            color: #f7c231;
+            display: inline-block;
+            float: left;
+            margin-right: 10px;
+        }
+        .text {
+            display: inline-block;
+            line-height: 25px;
+        }
+    }
+}
