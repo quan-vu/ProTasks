@@ -20,12 +20,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { HomeComponent } from './home.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { ProjectListComponent } from './project-list/project-list.component';
+import { FormAddTaskComponent } from 'src/app/components/shared/form-add-task/form-add-task.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     TaskListComponent,
     ProjectListComponent,
+    FormAddTaskComponent,
   ],
   imports: [
     HttpClientModule,

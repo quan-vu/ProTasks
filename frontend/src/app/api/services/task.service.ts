@@ -6,6 +6,7 @@ import { ITask, Task } from 'src/app/api/models/task.model';
 import { APIS } from './constants';
 import { SearchTaskReq } from 'src/app/api/models/task-search-request.model';
 import { ApiResponse } from 'src/app/api/models/api-response.model';
+import { TaskCreateReq } from '../models/task-create-request.model';
 
 @Injectable()
 export class TaskService {
@@ -17,7 +18,7 @@ export class TaskService {
   }
 
   getTasks(filter: SearchTaskReq): Observable<Task[]> {
-    const url = `${APIS.NOTE_LIST}${filter.toQuery()}`;
+    const url = `${APIS.TASK_LIST}${filter.toQuery()}`;
     return this.http.get<ApiResponse>(url)
       .pipe(
         // tap((response: ApiResponse) => console.log(response)),
@@ -27,5 +28,14 @@ export class TaskService {
           });
         })
       );
+  }
+
+  create(params: TaskCreateReq): Observable<Task>{
+    const url = APIS.TASK_CREATE;
+    return this.http.post<ApiResponse>(url, params).pipe(
+      map((response: ApiResponse) => {
+          return new Task(response.data);
+      })
+    );
   }
 }

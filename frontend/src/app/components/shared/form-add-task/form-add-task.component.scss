@@ -1,0 +1,20 @@
+.form-add-task {
+    max-width: 800px;
+    margin: auto;
+
+    .wrap-input {
+        width: 100%;
+        display: inline-block;
+        float: left;
+    }
+
+    .icon-add {
+        
+    }
+    .btn-save {
+        cursor: pointer;
+        color: rgb(236, 203, 54);
+        font-size: 24px !important;
+        line-height: 48px;
+    }
+}
