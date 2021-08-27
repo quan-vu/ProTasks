@@ -13,3 +13,8 @@ restart:
 clean: 
 	docker-compose down -v
 
+start-prod: clean
+	docker-compose -f docker-compose.prod.yml up -d
+
+stop-prod:
+	docker-compose -f docker-compose.prod.yml up -d
