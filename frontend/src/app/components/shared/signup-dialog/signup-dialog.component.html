@@ -1,0 +1,60 @@
+<div class="signup-dialog">
+    <div class="col-sm-12">
+        <div class="row">
+            <form *ngIf="isLogin" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+                <h3 class="text-center">Login</h3>
+                <p>
+                    <mat-form-field appearance="outline" class="d-block">
+                        <mat-icon matPrefix class="me-3">email</mat-icon>
+                        <mat-label>Email</mat-label>
+                        <input matInput [formControl]="emailLoginControl" placeholder="Email">
+                        <mat-error *ngIf="emailLoginControl.invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline" class="d-block">
+                        <mat-icon matPrefix class="me-3">password</mat-icon>
+                        <mat-label>Password</mat-label>
+                        <input matInput [formControl]="passwordLoginControl" placeholder="Email">
+                        <mat-error *ngIf="passwordLoginControl.invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <button mat-raised-button type="submit" class="btn-signup btn-brand btn-fullwidth">Login</button>
+                </p>
+            </form>
+
+            <form *ngIf="!isLogin" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                <h3 class="text-center">Signup</h3>
+                <p><mat-hint>Signup new account!</mat-hint></p>
+                <p>
+                    <mat-form-field appearance="outline" class="d-block">
+                        <mat-icon matPrefix class="me-3">account_circle</mat-icon>
+                        <mat-label>Name</mat-label>
+                        <input matInput [formControl]="nameControl" placeholder="Name">
+                        <mat-error *ngIf="nameControl.invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline" class="d-block">
+                        <mat-icon matPrefix class="me-3">email</mat-icon>
+                        <mat-label>Email</mat-label>
+                        <input matInput [formControl]="emailControl" placeholder="Email">
+                        <mat-error *ngIf="emailControl.invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline" class="d-block">
+                        <mat-icon matPrefix class="me-3">password</mat-icon>
+                        <mat-label>Password</mat-label>
+                        <input matInput [formControl]="passwordControl" placeholder="Email">
+                        <mat-error *ngIf="passwordControl.invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <button mat-raised-button type="submit" class="btn-signup btn-brand btn-fullwidth">Signup</button>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>
