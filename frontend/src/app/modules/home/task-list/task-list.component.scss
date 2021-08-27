@@ -1,127 +1,5 @@
 .tasks {
 
-    &_search {
-
-        padding: 30px 0;
-        background-position: top;
-        background-size: cover;
-        background-repeat: none;
-    
-        .headline {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 600;
-        }
-    
-        .secondline {
-            text-align: center;
-            font-size: 1.1rem;
-            color: #555;
-        }
-    
-        &_form {
-    
-            background-color: white;
-            margin-top: 10px;
-            padding: 25px 0 0 0;
-            border-radius: 10px;
-            font-size: 1rem;
-    
-
-            form {
-                width: 100%;
-                max-width: 770px;
-                margin: auto;
-            }
-
-            .form-control-search {
-                min-width: 450px;
-                margin-right: 10px;
-                border-top-right-radius: 0;
-                border-bottom-right-radius: 0;
-            }
-
-            .btnSubmit {
-                display: inline-block;
-                float: right;
-                margin: 5px 5px;
-
-                button {
-                    padding: 11px 25px;
-                    background: #317a6d;
-                    color: #fff;
-                    font-size: 18px;
-                }
-            }
-    
-        }
-    
-        &_submit {
-    
-            padding-bottom: 10px;
-    
-            button {
-                background: #c64330;
-                color: #fff;
-                margin: 25px auto;
-                display: block;
-                font-size: 20px;
-                border-radius: 250px;
-                text-align: center;
-                width: 100px;
-                height: 100px;
-                border: 3px solid #fff;
-                box-shadow: 0px 4px 30px 6px rgb(193 198 202);
-                -webkit-box-shadow: 0px 4px 30px 6px rgb(193 198 202);
-                -moz-box-shadow: 0px 4px 30px 6px rgb(193 198 202);
-            }
-        }
-    
-        &_tabs {
-            margin-top: 30px;
-            margin-bottom: 0px;
-            padding-left: 64px;
-            padding-right: 64px;
-            width: auto;
-            left: auto;
-            z-index: 1;
-            -webkit-box-pack: center;
-            justify-content: center;
-            display: flex;
-            box-shadow: rgb(0 0 0 / 20%) 0px 1px 6px 2px;
-            border-radius: 8px;
-            background-color: rgb(255, 255, 255);
-    
-            .icon {
-                font-size: 32px;
-            }
-    
-            li {
-                margin-right: 8px;
-                margin-left: 8px;
-                padding-top: 16px;
-                width: 140px;
-                position: relative;
-                flex-direction: column;
-                -webkit-box-pack: center;
-                justify-content: center;
-                -webkit-box-align: center;
-                align-items: center;
-                display: inline-flex;
-    
-                h6 {
-                    font-size: 16px;
-                    line-height: 20px;
-                    font-weight: 400;
-                    margin-top: 10px;
-                }
-            }
-        }
-    }
-
-    &_selected {
-    }
-
     &_title {
         font-size: 24px;
         line-height: 30px;
@@ -131,84 +9,11 @@
         margin-top: 3rem;
     }
 
-    &_filter {
-
-        border-right: 1pc solid #ddd;
-        padding: 20px 10px;
-        overflow-y: scroll;
-        overflow-wrap: break-word;
-        position: fixed;
-        height: 100%;
-
-        &_project {
-            margin: 15px;
-        }
-
-        .text-hint {
-            text-transform: uppercase;
-            font-weight: 500;
-        }
-        &_heading {
-            font-size: 18px;
-            font-weight: 500;
-
-            span {
-                background-color: #317a6d;
-                padding: 14px;
-                border-radius: 5px;
-                color: #fff;
-                margin-bottom: 30px;
-                display: inline-block;
-                position: relative;
-
-                &::after {
-                    content: "";
-                    position: absolute;
-                    bottom: -18px;
-                    left: calc(50% - 55px);
-                    width: 0;
-                    height: 0;
-                    border-left: 26px solid transparent;
-                    border-right: 10px solid transparent;
-                    border-top: 19px solid #317a6d;
-                }
-            }
-        }
-        
-        .group-name {
-            font-size: 14px;
-            text-shadow: none;
-            color: #333;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            display: inline-block;
-            border-radius: 50px;
-            margin: 0 5px -2px 0;
-        }
-
-        .checklist {
-            padding-left: 0px;
-
-            li {
-                list-style: none;
-                line-height: 24px;
-                font-size: 16px;
-                line-height: 34px;
-            }
-        }
-    }
-
     &_list {
-
         max-width: 800px;
         margin: auto;
 
-
         &_item {
-
             margin-bottom: 30px;
 
             &_wrap {
@@ -231,39 +36,6 @@
                 font-size: 14px;
             }
 
-            .info_row{
-                clear: both;
-                display: inline-block;
-                width: 100%;
-                padding: 10px 0;
-            }
-
-            .btnLoginToViewSalary {
-                color: #555;
-            }
-
-            .image {
-                width: 100px;
-                overflow: hidden;
-                border-top-left-radius: 10px;
-                border-top-right-radius: 10px;
-                display: inline-block;
-                float: left;
-                padding-top: 20px;
-
-                .thumbnail {
-                    width: 100px;
-                    height: 100px;
-                }
-
-                img {
-                    width: 100%;
-                    height: auto;
-                    max-height: 100%;
-                    border-radius: 5px;
-                }
-            }
-
             .title {
                 font-size: 18px;
                 margin: 10px 0;
@@ -272,62 +44,6 @@
                 font-weight: 500;          
             }
 
-            .tag {
-                margin-right: 3px;
-                text-shadow: none;
-                font-weight: normal;
-            }
-
-            .location {
-                color: #5392f9;
-                font: 400 12px/20px Roboto, "Helvetica Neue", sans-serif;
-                letter-spacing: normal;
-                display: inline-block;
-                float: right;
-            }
-
-            .salary {
-                font-weight: 500;
-                color: #dc372c;
-                line-height: 24px;
-            }
-            .salary-icon {
-                background: #eee;
-                border-radius: 50px;
-                font-size: 16px !important;
-                line-height: 22px;
-                text-align: center;
-                margin-right: 10px;
-                display: inline-block;
-                float: left;
-                color: rgb(220 55 44 / 85%);
-            }
-
-            .btn-quickview {
-                float: right;
-                border-radius: 50px;
-                background-color: #317a6d;
-                color: whitesmoke;
-                box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
-            }
         }
-        
-    }
-
-    &_more {
-        text-align: center;
-        margin-top: 20px;
-
-        button {
-            background: #eee;
-            // color: white;
-            border-radius: 30px;
-            padding: 6px 50px;
-            font-size: 1rem;
-        }
-    }
-
-    .btnLoginToViewSalary {
-
     }
 }

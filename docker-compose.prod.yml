@@ -1,0 +1,65 @@
+version: "3.9"
+   
+services:
+
+  db:
+    image: postgres:13
+    volumes:
+      - dbdata:/var/lib/postgres
+    environment:
+      - "POSTGRES_DB=${DB_NAME}"
+      - "POSTGRES_USER=${DB_USERNAME}"
+      - "POSTGRES_PASSWORD=${DB_PASSWORD}"
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  api:
+    image: huyquanvu1/protasks-api:1.0
+    build: 
+      context: ./backend
+    ports:
+      - "5050:5050"
+    environment:
+      - "DB_HOST=${DB_HOST}"
+      - "DB_PORT=${DB_PORT}"
+      - "DB_NAME=${DB_NAME}"
+      - "DB_USERNAME=${DB_USERNAME}"
+      - "DB_PASSWORD=${DB_PASSWORD}"
+    depends_on:
+      - db
+    healthcheck:
+        # test: ["CMD", "curl", "-f", "http://localhost:15672"]
+        interval: 10s
+        timeout: 5s
+        retries: 5
+
+  frontend:
+    build: 
+      context: ./frontend
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "4200:4200"
+    environment:
+      - "APP_ENV=development"
+      - "API_URL=http://api"
+    depends_on:
+      - api
+
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+       - pgadmin:/var/lib/pgadmin
+    ports:
+      - "5433:80"
+
+
+volumes: 
+  dbdata:
+  pgadmin:
