@@ -18,6 +18,10 @@ export class StorageService {
         return user ? new AuthLoginResponse(JSON.parse(user)) : null;
     }
 
+    clearUser() {
+        localStorage.removeItem('user');
+    }
+
     setAccessToken(accessToken: string) {
         localStorage.setItem('access_token', accessToken);
     }
@@ -26,4 +30,12 @@ export class StorageService {
         return localStorage.getItem('access_token');
     }
 
+    clearAccessToken() {
+        localStorage.removeItem('access_token');
+    }
+
+    clearAuthentication() {
+        this.clearUser();
+        this.clearAccessToken();
+    }
 }

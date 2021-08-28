@@ -1,7 +1,7 @@
 <div class="signup-dialog">
     <div class="col-sm-12">
         <div class="row">
-            <form *ngIf="isLogin" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+            <form *ngIf="mode" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
                 <h3 class="text-center">Login</h3>
                 <p>
                     <mat-form-field appearance="outline" class="d-block">
@@ -24,7 +24,7 @@
                 </p>
             </form>
 
-            <form *ngIf="!isLogin" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <form *ngIf="!mode" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
                 <h3 class="text-center">Signup</h3>
                 <p><mat-hint>Signup new account!</mat-hint></p>
                 <p>

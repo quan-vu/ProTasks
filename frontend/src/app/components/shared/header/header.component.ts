@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { AuthService } from 'src/app/api/services/auth.service';
 import { StorageService } from 'src/app/api/services/storage.service';
 import { SignupDialogComponent } from 'src/app/components/shared/signup-dialog/signup-dialog.component';
 
@@ -12,10 +13,12 @@ export class HeaderComponent implements OnInit {
 
   menu: Array<any>;
   isLoggedin: boolean = false;
+  loggedUser: any = null;
 
   constructor(
     public dialog: MatDialog,
     private storageService: StorageService,
+    private authService: AuthService,
   ) { 
     this.menu = [
       // {
@@ -28,8 +31,8 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const loggedUser = this.storageService.getUser();
-    if (!loggedUser) {
+    this.loggedUser = this.storageService.getUser();
+    if (!this.loggedUser) {
       this.openDialog();
     }
   }
@@ -45,5 +48,12 @@ export class HeaderComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
+
+  logout() {
+    // do logout
+    this.storageService.clearAuthentication();
+    window.location.reload();
+  }
+
 
 }

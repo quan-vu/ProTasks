@@ -25,6 +25,10 @@ import { TaskService } from 'src/app/api/services/task.service';
 import { ProjectService } from 'src/app/api/services/project.service';
 import { MessageService } from 'src/app/api/services/message.service';
 import { httpInterceptorProviders } from './http-interceptors';
+import { AuthService } from './api/services/auth.service';
+import { StorageService } from './api/services/storage.service';
+
+// Material
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { MatInputModule } from '@angular/material/input';
@@ -32,8 +36,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
-import { AuthService } from './api/services/auth.service';
-import { StorageService } from './api/services/storage.service';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -60,6 +63,7 @@ import { StorageService } from './api/services/storage.service';
     MatSelectModule,
     MatRadioModule,
     MatCardModule,
+    MatMenuModule,
   ],
   providers: [
     httpInterceptorProviders,

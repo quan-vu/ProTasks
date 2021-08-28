@@ -35,8 +35,6 @@ import { FormAddTaskComponent } from 'src/app/components/shared/form-add-task/fo
     HomeRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,

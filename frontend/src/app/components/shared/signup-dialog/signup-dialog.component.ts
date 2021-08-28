@@ -13,7 +13,8 @@ import { StorageService } from 'src/app/api/services/storage.service';
 })
 export class SignupDialogComponent implements OnInit {
 
-  isLogin: boolean = true;
+  mode: boolean = true;
+  isLoggedin: boolean = false;
   authLoginReq = new AuthLoginReq;
   
   signupForm: FormGroup;
@@ -54,11 +55,11 @@ export class SignupDialogComponent implements OnInit {
       this.authLoginReq.setEmail(this.emailLoginControl.value);
       this.authLoginReq.setPassword(this.passwordLoginControl.value);
       this.authService.login(this.authLoginReq)
-        .subscribe((response) => {
-          if(response.data){
-            let data = new AuthLoginResponse(response.data);
+        .subscribe((data) => {
+          if(data){
             this.storageService.setUser(data);
             this.closeDialog();
+            window.location.reload();
           }
         });
     }
