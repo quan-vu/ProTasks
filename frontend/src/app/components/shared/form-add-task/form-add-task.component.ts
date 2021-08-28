@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { TaskCreateReq } from 'src/app/api/models/task-create-request.model';
 import { TaskService } from 'src/app/api/services/task.service';
@@ -9,6 +9,8 @@ import { TaskService } from 'src/app/api/services/task.service';
   styleUrls: ['./form-add-task.component.scss']
 })
 export class FormAddTaskComponent implements OnInit {
+
+  @Output() addedTask = new EventEmitter<boolean>();
 
   formAddTask: FormGroup;
   contentControl = new FormControl('', Validators.required);
@@ -33,7 +35,8 @@ export class FormAddTaskComponent implements OnInit {
       this.taskCreateReq.setContent(this.contentControl.value);
       this.taskService.create(this.taskCreateReq)
         .subscribe(task => {
-          console.log(task)
+          this.emitAddedTask();
+          console.log(task);
         });
     }
   }
@@ -43,6 +46,11 @@ export class FormAddTaskComponent implements OnInit {
       return 'You must enter a value!';
     }
     return '';
+  }
+
+  emitAddedTask() {
+    console.log("emitAddedTask");
+    this.addedTask.emit(true);
   }
 
 }
