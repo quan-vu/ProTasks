@@ -29,8 +29,6 @@ import { AuthService } from './api/services/auth.service';
 import { StorageService } from './api/services/storage.service';
 
 // Material
-import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
-import { LoginFormComponent } from './login-form/login-form.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
@@ -44,7 +42,6 @@ import { MatMenuModule } from '@angular/material/menu';
     HeaderComponent,
     FooterComponent,
     SignupDialogComponent,
-    LoginFormComponent,
   ],
   imports: [
     BrowserModule,

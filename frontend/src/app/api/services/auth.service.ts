@@ -20,7 +20,7 @@ export class AuthService {
   }
 
   signup(params: AuthSignupReq): Observable<AuthSignupResponse>{
-    const url = APIS.AUTH_LOGIN;
+    const url = APIS.AUTH_SIGNUP;
     return this.http.post<ApiResponse>(url, params).pipe(
       tap(
         error => console.error(error)

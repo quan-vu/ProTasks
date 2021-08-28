@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AuthLoginReq } from 'src/app/api/models/auth-login-request.model';
 import { AuthLoginResponse } from 'src/app/api/models/auth-login-response';
+import { AuthSignupReq } from 'src/app/api/models/auth-signup-request.model';
 import { AuthService } from 'src/app/api/services/auth.service';
 import { StorageService } from 'src/app/api/services/storage.service';
 
@@ -13,14 +14,15 @@ import { StorageService } from 'src/app/api/services/storage.service';
 })
 export class SignupDialogComponent implements OnInit {
 
-  mode: boolean = true;
+  authMode: string = 'login';
   isLoggedin: boolean = false;
   authLoginReq = new AuthLoginReq;
+  authSignupReq = new AuthSignupReq;
   
   signupForm: FormGroup;
-  nameControl = new FormControl('', Validators.required);
-  emailControl = new FormControl('', Validators.required);
-  passwordControl = new FormControl('', Validators.required);
+  nameSignupControl = new FormControl('', Validators.required);
+  emailSignupControl = new FormControl('', Validators.required);
+  passwordSignupControl = new FormControl('', Validators.required);
 
   loginForm: FormGroup;
   emailLoginControl = new FormControl('', Validators.required);
@@ -33,9 +35,9 @@ export class SignupDialogComponent implements OnInit {
     private storageService: StorageService,
   ) {
     this.signupForm = formbuilder.group({
-      name: this.nameControl,
-      email: this.emailControl,
-      password: this.passwordControl,
+      name: this.nameSignupControl,
+      email: this.emailSignupControl,
+      password: this.passwordSignupControl,
     });
     this.loginForm = formbuilder.group({
       email: this.emailLoginControl,
@@ -46,7 +48,24 @@ export class SignupDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(): void {
+  onSignupSubmit(): void {
+    console.log("onSignupSubmit");
+    if(this.nameSignupControl.valid
+      && this.emailSignupControl.valid 
+      && this.passwordSignupControl.valid
+    ) {
+      this.authSignupReq.setName(this.nameSignupControl.value);
+      this.authSignupReq.setEmail(this.emailSignupControl.value);
+      this.authSignupReq.setPassword(this.passwordSignupControl.value);
+      this.authService.signup(this.authSignupReq)
+        .subscribe((data) => {
+          if(data){
+            this.storageService.setUser(data);
+            this.closeDialog();
+            window.location.reload();
+          }
+        });
+    }
   }
 
   onLoginSubmit(): void {
@@ -66,7 +85,7 @@ export class SignupDialogComponent implements OnInit {
   }
 
   getErrorMessage() {
-    if (this.nameControl.hasError('required')) {
+    if (this.nameSignupControl.hasError('required')) {
       return 'You must enter a value!';
     }
     return '';
@@ -76,5 +95,8 @@ export class SignupDialogComponent implements OnInit {
     this.dialogRef.close('Pizza!');
   }
 
-
+  setAuthMode(authMode: string): void {
+    this.authMode = authMode;
+  }
+  
 }

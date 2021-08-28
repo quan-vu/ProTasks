@@ -7,4 +7,5 @@ export const APIS = {
   TASK_LIST: `${BASE_URL}/v1/tasks`,
   TASK_CREATE: `${BASE_URL}/v1/tasks`,
   AUTH_LOGIN: `${BASE_URL}/v1/auth/login`,
+  AUTH_SIGNUP: `${BASE_URL}/v1/auth/signup`,
 }

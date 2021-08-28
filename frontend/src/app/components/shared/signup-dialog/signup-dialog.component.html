@@ -1,11 +1,11 @@
 <div class="signup-dialog">
     <div class="col-sm-12">
         <div class="row">
-            <form *ngIf="mode" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+            <form *ngIf="authMode === 'login'" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
                 <h3 class="text-center">Login</h3>
                 <p>
                     <mat-form-field appearance="outline" class="d-block">
-                        <mat-icon matPrefix class="me-3">email</mat-icon>
+                        <mat-icon matPrefix>email</mat-icon>
                         <mat-label>Email</mat-label>
                         <input matInput [formControl]="emailLoginControl" placeholder="Email">
                         <mat-error *ngIf="emailLoginControl.invalid">{{getErrorMessage()}}</mat-error>
@@ -13,46 +13,52 @@
                 </p>
                 <p>
                     <mat-form-field appearance="outline" class="d-block">
-                        <mat-icon matPrefix class="me-3">password</mat-icon>
+                        <mat-icon matPrefix>password</mat-icon>
                         <mat-label>Password</mat-label>
-                        <input matInput [formControl]="passwordLoginControl" placeholder="Email">
+                        <input matInput [formControl]="passwordLoginControl" type="password" placeholder="Password">
                         <mat-error *ngIf="passwordLoginControl.invalid">{{getErrorMessage()}}</mat-error>
                     </mat-form-field>
                 </p>
                 <p>
                     <button mat-raised-button type="submit" class="btn-signup btn-brand btn-fullwidth">Login</button>
                 </p>
+                <p class="mt-4">
+                    You are new to ProTasks? <a class="btn-auth-mode" (click)="setAuthMode('signup')">Signup now</a>
+                </p>
             </form>
 
-            <form *ngIf="!mode" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <form *ngIf="authMode === 'signup'" [formGroup]="signupForm" (ngSubmit)="onSignupSubmit()">
                 <h3 class="text-center">Signup</h3>
                 <p><mat-hint>Signup new account!</mat-hint></p>
                 <p>
                     <mat-form-field appearance="outline" class="d-block">
-                        <mat-icon matPrefix class="me-3">account_circle</mat-icon>
+                        <mat-icon matPrefix>account_circle</mat-icon>
                         <mat-label>Name</mat-label>
-                        <input matInput [formControl]="nameControl" placeholder="Name">
-                        <mat-error *ngIf="nameControl.invalid">{{getErrorMessage()}}</mat-error>
+                        <input matInput [formControl]="nameSignupControl" placeholder="Name">
+                        <mat-error *ngIf="nameSignupControl.invalid">{{getErrorMessage()}}</mat-error>
                     </mat-form-field>
                 </p>
                 <p>
                     <mat-form-field appearance="outline" class="d-block">
-                        <mat-icon matPrefix class="me-3">email</mat-icon>
+                        <mat-icon matPrefix>email</mat-icon>
                         <mat-label>Email</mat-label>
-                        <input matInput [formControl]="emailControl" placeholder="Email">
-                        <mat-error *ngIf="emailControl.invalid">{{getErrorMessage()}}</mat-error>
+                        <input matInput [formControl]="emailSignupControl" placeholder="Email">
+                        <mat-error *ngIf="emailSignupControl.invalid">{{getErrorMessage()}}</mat-error>
                     </mat-form-field>
                 </p>
                 <p>
                     <mat-form-field appearance="outline" class="d-block">
-                        <mat-icon matPrefix class="me-3">password</mat-icon>
+                        <mat-icon matPrefix>password</mat-icon>
                         <mat-label>Password</mat-label>
-                        <input matInput [formControl]="passwordControl" placeholder="Email">
-                        <mat-error *ngIf="passwordControl.invalid">{{getErrorMessage()}}</mat-error>
+                        <input matInput [formControl]="passwordSignupControl" type="password" placeholder="Password">
+                        <mat-error *ngIf="passwordSignupControl.invalid">{{getErrorMessage()}}</mat-error>
                     </mat-form-field>
                 </p>
                 <p>
                     <button mat-raised-button type="submit" class="btn-signup btn-brand btn-fullwidth">Signup</button>
+                </p>
+                <p class="mt-4">
+                    Back to <a class="btn-auth-mode" (click)="setAuthMode('login')">Login</a>
                 </p>
             </form>
         </div>
