@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TopDestinationComponent } from './top-destination.component';
+import { SignupDialogComponent } from './signup-dialog.component';
 
-describe('TopDestinationComponent', () => {
-  let component: TopDestinationComponent;
-  let fixture: ComponentFixture<TopDestinationComponent>;
+describe('SignupDialogComponent', () => {
+  let component: SignupDialogComponent;
+  let fixture: ComponentFixture<SignupDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TopDestinationComponent ]
+      declarations: [ SignupDialogComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TopDestinationComponent);
+    fixture = TestBed.createComponent(SignupDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

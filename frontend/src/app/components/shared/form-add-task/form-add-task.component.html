@@ -1,0 +1,13 @@
+<div class="form-add-task">
+    <form [formGroup]="formAddTask" (ngSubmit)="onSubmit()">
+        <div class="wrap-input">
+            <mat-form-field appearance="outline" class="d-block">
+                <mat-label>Task</mat-label>
+                <input matInput [formControl]="contentControl" placeholder="" autocomplete="false">
+                <mat-icon *ngIf="contentControl.invalid" matSuffix class="me-3 icon-add">add</mat-icon>
+                <mat-icon (click)="onSubmit()" *ngIf="!contentControl.invalid" matSuffix class="me-3 btn-save">save</mat-icon>
+                <mat-error *ngIf="contentControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</div>

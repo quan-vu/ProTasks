@@ -1,29 +1,25 @@
 <nav class="header navbar navbar-expand-lg">
     <div class="container-fluid">
-        <div class="col-md-12">
-            <div class="row">
-                <div class="col-md-3">
-                    <a class="navbar-brand site-brand" href="/">
-                        <img class="logo" width="40" alt="Angular Logo" src="/assets/images/logo.png" />
-                        <h1 class="name">ProTasks</h1>
-                        <span class="branch">Keep your life easier</span>
-                    </a>
-                </div>
-                <div class="col-md-9">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="d-flex"></div>
-                    <div class="collapse navbar-collapse ml-auto header_menu" id="navbarNavDropdown">
-                        <ul class="navbar-nav mb-2 mb-lg-0">
-                            <li *ngFor="let item of menu" class="nav-item">
-                                <a class="nav-link" [target]="item.target" [href]="item.route">{{item.name}}</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <a class="navbar-brand site-brand" href="/">
+            <img class="logo" width="40" alt="Angular Logo" src="/assets/images/logo.png" />
+            <h1 class="name">ProTasks</h1>
+            <span class="branch">Keep your life easier</span>
+        </a>
+        <div class="loggedin-user" *ngIf="loggedUser">
+            <button mat-icon-button [matMenuTriggerFor]="beforeMenu" class="me-4" aria-label="User logged in">
+                <span class="name me-2">{{loggedUser.name}}</span>
+                <mat-icon>account_circle</mat-icon>
+            </button>
+            <mat-menu #beforeMenu="matMenu" xPosition="before" class="controls">
+                <button mat-menu-item>
+                    <mat-icon>badge</mat-icon>
+                    <span>Profile</span>
+                </button>
+                <button mat-menu-item (click)="logout()">
+                    <mat-icon>logout</mat-icon>
+                    <span>Logout</span>
+                </button>
+            </mat-menu>
         </div>
     </div>
 </nav>

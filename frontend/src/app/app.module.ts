@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
+import { SignupDialogComponent } from 'src/app/components/shared/signup-dialog/signup-dialog.component';
 
 // application modules
 import { HomeModule } from './modules/home/home.module';
@@ -24,12 +25,23 @@ import { TaskService } from 'src/app/api/services/task.service';
 import { ProjectService } from 'src/app/api/services/project.service';
 import { MessageService } from 'src/app/api/services/message.service';
 import { httpInterceptorProviders } from './http-interceptors';
+import { AuthService } from './api/services/auth.service';
+import { StorageService } from './api/services/storage.service';
+
+// Material
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    SignupDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +55,12 @@ import { httpInterceptorProviders } from './http-interceptors';
     MatIconModule,
     // Application
     HomeModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    MatMenuModule,
   ],
   providers: [
     httpInterceptorProviders,
@@ -50,6 +68,11 @@ import { httpInterceptorProviders } from './http-interceptors';
     MessageService,
     TaskService,
     ProjectService,
+    AuthService,
+    StorageService,
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   bootstrap: [AppComponent]
 })

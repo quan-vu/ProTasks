@@ -17,7 +17,7 @@ export class ProjectService {
   }
 
   getProjects(filter: SearchProjectReq): Observable<IProject[]> {
-    const url = `${APIS.NOTE_LIST}${filter.toQuery()}`;
+    const url = `${APIS.TASK_LIST}${filter.toQuery()}`;
     return this.http.get<ApiResponse>(url)
       .pipe(
         // tap((response: ApiResponse) => console.log(response)),
